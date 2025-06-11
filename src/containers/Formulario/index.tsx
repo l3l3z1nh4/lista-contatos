@@ -12,7 +12,7 @@ const Formulario = () => {
   const navigate = useNavigate()
   const [titulo, setTitulo] = useState('')
   const [descricao, setDescricao] = useState('')
-  const [prioridade, setPrioridade] = useState(enums.Prioridade.NORMAL)
+  const [prioridade, setPrioridade] = useState(enums.Prioridade.TRABALHO)
 
   const CadastraTarefa = () => (evento: FormEvent<HTMLFormElement>) => {
     evento.preventDefault()
@@ -22,13 +22,13 @@ const Formulario = () => {
         titulo,
         prioridade,
         descricao,
-        status: enums.Status.PENDENTE
+        status: enums.Status.COMUNS
       })
     )
 
     setTitulo('')
     setDescricao('')
-    setPrioridade(enums.Prioridade.NORMAL)
+    setPrioridade(enums.Prioridade.TRABALHO)
     navigate('/')
   }
 
@@ -60,7 +60,7 @@ const Formulario = () => {
                   setPrioridade(evento.target.value as enums.Prioridade)
                 }
                 id={prioridade}
-                defaultChecked={prioridade === enums.Prioridade.NORMAL}
+                defaultChecked={prioridade === enums.Prioridade.TRABALHO}
               />
               <label htmlFor={prioridade}>{prioridade}</label>
             </Opcao>

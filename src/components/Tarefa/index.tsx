@@ -45,22 +45,19 @@ const Tarefa = ({
         <input
           type="checkbox"
           id={titulo}
-          checked={status === enums.Status.CONCLUIDA}
+          checked={status === enums.Status.FAVORITOS}
           onChange={alteraStatusTarefa}
         />
-        <span>
-          <S.Titulo>
-            {estaEditando && <em>Editando:</em>}
-            {titulo}
-          </S.Titulo>
-        </span>
+        <span className="material-icons-round">star</span>
+        <S.Titulo>
+          {estaEditando && <em>Editando:</em>}
+          {titulo}
+        </S.Titulo>
       </label>
       <S.Tag parametro="prioridade" prioridade={prioridade}>
         {prioridade}
       </S.Tag>
-      <S.Tag parametro="status" status={status}>
-        {status}
-      </S.Tag>
+
       <S.Descricao
         disabled={!estaEditando}
         placeholder="Descrição da tarefa"

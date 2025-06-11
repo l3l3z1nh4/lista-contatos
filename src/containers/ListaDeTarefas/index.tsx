@@ -36,9 +36,13 @@ const ListaDeTarefas = () => {
 
   return (
     <MainContainer>
+      <Titulo as="h2">Contatos</Titulo>
       <Titulo as="p">
-        {tarefasFiltradas.length} tarefa(s) marcada(s) como{' '}
-        {`"${criterio}${valor !== undefined ? `: ${valor}"` : '"'}`}
+        {`${
+          valor !== undefined
+            ? ` ${tarefasFiltradas.length} conato(s) marcado(s) como ${valor}" `
+            : ''
+        }`}
       </Titulo>
 
       <ul>

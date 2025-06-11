@@ -10,25 +10,25 @@ const initialState: TarefasState = {
     {
       id: 1,
       descricao: 'Estudar Redux para entender o gerenciamento de estado',
-      prioridade: enums.Prioridade.NORMAL,
-      status: enums.Status.PENDENTE,
-      titulo: 'Estudar Redux'
+      prioridade: enums.Prioridade.TRABALHO,
+      status: enums.Status.COMUNS,
+      titulo: 'Ana'
     },
 
     {
       id: 2,
       descricao: 'Estudar TypeScript para melhorar a tipagem do código',
-      prioridade: enums.Prioridade.IMPORTANTE,
-      status: enums.Status.CONCLUIDA,
-      titulo: 'Estudar TypeScript'
+      prioridade: enums.Prioridade.AMIGOS,
+      status: enums.Status.FAVORITOS,
+      titulo: 'Paula'
     },
 
     {
       id: 3,
       descricao: 'Estudar React para entender a biblioteca de UI ',
-      prioridade: enums.Prioridade.IMPORTANTE,
-      status: enums.Status.PENDENTE,
-      titulo: 'Estudar React'
+      prioridade: enums.Prioridade.AMIGOS,
+      status: enums.Status.COMUNS,
+      titulo: 'Julia'
     }
   ]
 }
@@ -77,8 +77,8 @@ const tarefasSlice = createSlice({
       )
       if (indexDaTarefa >= 0) {
         state.itens[indexDaTarefa].status = action.payload.finalizado
-          ? enums.Status.CONCLUIDA
-          : enums.Status.PENDENTE
+          ? enums.Status.COMUNS
+          : enums.Status.FAVORITOS
       }
     }
   }

@@ -50,7 +50,7 @@ export const Botao = styled.button`
   border-radius: 8px;
   margin-right: 8px;
   cursor: pointer;
-  background-color: rgb(65, 65, 65);
+  background-color: #414141;
   &:hover {
     background-color: rgba(233, 1, 121, 0.6);
   }

@@ -11,18 +11,17 @@ type TagProps = {
 
 function retonaCorDeFundo(props: TagProps): string {
   if (props.parametro === 'status') {
-    if (props.status === enums.Status.PENDENTE) return variaveis.rosa100
-    if (props.status === enums.Status.CONCLUIDA) return variaveis.rosa20
+    if (props.status === enums.Status.COMUNS) return variaveis.rosa100
+    if (props.status === enums.Status.FAVORITOS) return variaveis.rosa20
   } else {
-    if (props.prioridade === enums.Prioridade.URGENTE) return variaveis.rosa100
-    if (props.prioridade === enums.Prioridade.IMPORTANTE)
-      return variaveis.rosa75
+    if (props.prioridade === enums.Prioridade.FAMILIA) return variaveis.rosa100
+    if (props.prioridade === enums.Prioridade.AMIGOS) return variaveis.rosa75
   }
   return variaveis.rosa50
 }
 
 function retornaCorDoTexto(props: TagProps): string {
-  if (props.parametro === 'status' && props.status === enums.Status.CONCLUIDA) {
+  if (props.parametro === 'status' && props.status === enums.Status.FAVORITOS) {
     return variaveis.rosa75
   }
   return '#ffffff'
@@ -41,20 +40,26 @@ export const Card = styled.div`
     align-items: center;
     cursor: pointer;
 
+    span {
+      padding-bottom: 8px;
+      color: rgb(180, 177, 177);
+      margin-right: 8px;
+    }
+
     input {
       margin-right: 8px;
       width: 16px;
       height: 16px;
       cursor: pointer;
       margin-bottom: 8px;
+      display: none;
 
-      &:checked {
-        accent-color: #777;
+      &:hover + span {
+        color: ${variaveis.rosa50};
       }
 
       &:checked + span {
-        text-decoration: line-through;
-        color: #8b8b8b;
+        color: ${variaveis.rosa100};
     }
   }
 `

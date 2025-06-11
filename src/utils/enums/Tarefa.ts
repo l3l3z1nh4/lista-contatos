@@ -1,10 +1,10 @@
 enum Prioridade {
-  URGENTE = 'urgente',
-  IMPORTANTE = 'importante',
-  NORMAL = 'normal'
+  FAMILIA = 'familia',
+  AMIGOS = 'amigos',
+  TRABALHO = 'trabalho'
 }
 enum Status {
-  PENDENTE = 'pendente',
-  CONCLUIDA = 'concluida'
+  COMUNS = 'comuns',
+  FAVORITOS = 'favoritos'
 }
 export { Prioridade, Status }
