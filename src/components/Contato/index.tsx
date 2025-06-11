@@ -1,14 +1,14 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import * as enums from '../../utils/enums/Tarefa'
+import * as enums from '../../utils/enums/Contato'
 import * as S from './styles'
-import { remover, editar, alteraStatus } from '../../store/reducers/tarefas'
+import { remover, editar, alteraStatus } from '../../store/reducers/contatos'
 import { Botao } from '../../styles'
-import TarefaClass from '../../models/Tarefa'
+import ContatoClass from '../../models/Contato'
 
-type Props = TarefaClass
+type Props = ContatoClass
 
-const Tarefa = ({
+const Contato = ({
   descricao: descricaoOriginal,
   prioridade,
   status,
@@ -29,7 +29,7 @@ const Tarefa = ({
     setDescricao(descricaoOriginal)
   }
 
-  function alteraStatusTarefa(evento: ChangeEvent<HTMLInputElement>) {
+  function alteraStatusContato(evento: ChangeEvent<HTMLInputElement>) {
     console.log(evento.target.checked)
     dispatch(
       alteraStatus({
@@ -46,7 +46,7 @@ const Tarefa = ({
           type="checkbox"
           id={titulo}
           checked={status === enums.Status.FAVORITOS}
-          onChange={alteraStatusTarefa}
+          onChange={alteraStatusContato}
         />
         <span className="material-icons-round">star</span>
         <S.Titulo>
@@ -60,7 +60,7 @@ const Tarefa = ({
 
       <S.Descricao
         disabled={!estaEditando}
-        placeholder="Descrição da tarefa"
+        placeholder="Número de telefone"
         value={descricao}
         onChange={(evento) => setDescricao(evento.target.value)}
       />
@@ -88,4 +88,4 @@ const Tarefa = ({
   )
 }
 
-export default Tarefa
+export default Contato

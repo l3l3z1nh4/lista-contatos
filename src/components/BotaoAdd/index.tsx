@@ -1,7 +1,7 @@
 import { BotaoCircular } from './styles'
 
 const BotaoAdd = () => {
-  return <BotaoCircular to="/nova-tarefa">+</BotaoCircular>
+  return <BotaoCircular to="/novo-contato">+</BotaoCircular>
 }
 
 export default BotaoAdd

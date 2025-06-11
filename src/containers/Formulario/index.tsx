@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { Botao, MainContainer, Titulo } from '../../styles/index'
 import { Input } from '../../styles/index'
 import { Form, Opcao, Opcoes } from './styles'
-import * as enums from '../../utils/enums/Tarefa'
-import { cadastrar } from '../../store/reducers/tarefas'
+import * as enums from '../../utils/enums/Contato'
+import { cadastrar } from '../../store/reducers/contatos'
 
 const Formulario = () => {
   const dispatch = useDispatch()
@@ -14,7 +14,7 @@ const Formulario = () => {
   const [descricao, setDescricao] = useState('')
   const [prioridade, setPrioridade] = useState(enums.Prioridade.TRABALHO)
 
-  const CadastraTarefa = () => (evento: FormEvent<HTMLFormElement>) => {
+  const CadastraContato = () => (evento: FormEvent<HTMLFormElement>) => {
     evento.preventDefault()
 
     dispatch(
@@ -34,8 +34,8 @@ const Formulario = () => {
 
   return (
     <MainContainer>
-      <Form onSubmit={CadastraTarefa()}>
-        <Titulo as="h2">Cadastro de Tarefa</Titulo>
+      <Form onSubmit={CadastraContato()}>
+        <Titulo as="h2">Cadastro de Contato</Titulo>
         <Input
           value={titulo}
           onChange={(evento) => setTitulo(evento.target.value)}
@@ -46,7 +46,7 @@ const Formulario = () => {
           value={descricao}
           onChange={(evento) => setDescricao(evento.target.value)}
           as="textarea"
-          placeholder="Descrição da Tarefa"
+          placeholder="email"
         />
         <Opcoes>
           <p>Prioridade:</p>

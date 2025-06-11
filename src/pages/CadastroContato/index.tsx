@@ -1,7 +1,7 @@
 import BarraLateral from '../../containers/BarraLateral'
 import Formulario from '../../containers/Formulario'
 
-const CadastroTarefa = () => {
+const CadastroContato = () => {
   return (
     <>
       <BarraLateral mostrarFiltros={false} />
@@ -9,4 +9,4 @@ const CadastroTarefa = () => {
     </>
   )
 }
-export default CadastroTarefa
+export default CadastroContato

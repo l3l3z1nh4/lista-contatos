@@ -5,7 +5,7 @@ import * as S from './styles'
 import { Botao, Input } from '../../styles/index'
 import { RootReducer } from '../../store'
 import { alteraTermo } from '../../store/reducers/filtro'
-import * as enums from '../../utils/enums/Tarefa'
+import * as enums from '../../utils/enums/Contato'
 
 type Props = {
   mostrarFiltros: boolean
@@ -48,7 +48,7 @@ const BarraLateral = ({ mostrarFiltros }: Props) => {
                 criterio="prioridade"
                 legenda="trabalho"
               />
-              <FiltroCard criterio="todas" legenda="todas" />
+              <FiltroCard criterio="todos" legenda="todos" />
             </S.Filtros>
           </>
         ) : (
