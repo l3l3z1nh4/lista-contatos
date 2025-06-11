@@ -77,8 +77,8 @@ const contatosSlice = createSlice({
       )
       if (indexDoContato >= 0) {
         state.itens[indexDoContato].status = action.payload.finalizado
-          ? enums.Status.COMUNS
-          : enums.Status.FAVORITOS
+          ? enums.Status.FAVORITOS
+          : enums.Status.COMUNS
       }
     }
   }
