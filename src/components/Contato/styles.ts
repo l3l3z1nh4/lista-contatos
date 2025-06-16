@@ -1,30 +1,8 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 
-import * as enums from '../../utils/enums/Contato'
-
-type TagProps = {
-  prioridade?: enums.Prioridade
-  status?: enums.Status
-  parametro: 'status' | 'prioridade'
-}
-
-function retonaCorDeFundo(props: TagProps): string {
-  if (props.parametro === 'status') {
-    if (props.status === enums.Status.COMUNS) return variaveis.rosa100
-    if (props.status === enums.Status.FAVORITOS) return variaveis.rosa20
-  } else {
-    if (props.prioridade === enums.Prioridade.FAMILIA) return variaveis.rosa100
-    if (props.prioridade === enums.Prioridade.AMIGOS) return variaveis.rosa75
-  }
-  return variaveis.rosa50
-}
-
-function retornaCorDoTexto(props: TagProps): string {
-  if (props.parametro === 'status' && props.status === enums.Status.FAVORITOS) {
-    return variaveis.rosa75
-  }
-  return '#ffffff'
+type TituloProps = {
+  estaEditando: boolean
 }
 
 export const Card = styled.div`
@@ -59,39 +37,54 @@ export const Card = styled.div`
       }
 
       &:checked + span {
-        color: ${variaveis.rosa100};
+        color: ${variaveis.rosa90};
     }
   }
 `
 
-export const Titulo = styled.h3`
+export const Titulo = styled.h3<TituloProps>`
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
+  color: ${(props) => (props.estaEditando ? variaveis.rosa75 : '#333')};
 `
 
-export const Tag = styled.span<TagProps>`
+export const Tag = styled.span`
   padding: 4px 8px;
   margin-right: 8px;
   font-size: 11px;
   font-weight: bold;
   border-radius: 8px;
-  background-color: ${(props) => retonaCorDeFundo(props)};
+  background-color: ${variaveis.rosa75};
   display: inline-block;
-  color: ${(props) => retornaCorDoTexto(props)};
+  color: #ffffff;
+  margin-bottom: 6px;
 `
 
-export const Descricao = styled.textarea`
-  color: #8b8b8b;
+export const Campo = styled.input`
+  color: #5b5b5b;
   font-size: 14px;
   line-height: 24px;
   display: block;
   width: 100%;
-  marggin-bottom: 16px;
+  margin-bottom: 16px;
   margin-top: 16px;
   resize: none;
   border: none;
   background-color: transparent;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+`
+
+export const InfoDisplay = styled.p`
+  color: #5a5a5a;
+  font-size: 14px;
+  line-height: 24px;
+  margin-top: 8px;
 `
 
 export const BarraAcoes = styled.div`

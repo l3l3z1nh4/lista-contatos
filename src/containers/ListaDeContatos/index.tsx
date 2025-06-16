@@ -12,8 +12,11 @@ const ListaDeContatos = () => {
   const filtraContatos = () => {
     let contatosFiltrados = itens
     if (termo !== undefined) {
+      const termoLower = termo.toLowerCase()
       contatosFiltrados = contatosFiltrados.filter(
-        (item) => item.titulo.toLowerCase().search(termo.toLowerCase()) >= 0
+        (item) =>
+          item.nome.toLowerCase().search(termoLower) >= 0 ||
+          (item.sobrenome?.toLowerCase().search(termoLower) ?? -1) >= 0
       )
 
       if (criterio === 'prioridade') {
@@ -47,13 +50,15 @@ const ListaDeContatos = () => {
 
       <ul>
         {contatosFiltrados.map((c) => (
-          <li key={c.titulo}>
+          <li key={c.id}>
             <Contato
               id={c.id}
-              titulo={c.titulo}
+              nome={c.nome}
               prioridade={c.prioridade}
               status={c.status}
-              descricao={c.descricao}
+              telefone={c.telefone}
+              sobrenome={c.sobrenome}
+              email={c.email}
             />
           </li>
         ))}

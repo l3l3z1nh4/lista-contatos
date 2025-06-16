@@ -10,8 +10,10 @@ import { cadastrar } from '../../store/reducers/contatos'
 const Formulario = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [titulo, setTitulo] = useState('')
-  const [descricao, setDescricao] = useState('')
+  const [nome, setNome] = useState('')
+  const [sobrenome, setSobrenome] = useState<string | undefined>('')
+  const [email, setEmail] = useState<string | undefined>('')
+  const [telefone, setTelefone] = useState(0)
   const [prioridade, setPrioridade] = useState(enums.Prioridade.TRABALHO)
 
   const CadastraContato = () => (evento: FormEvent<HTMLFormElement>) => {
@@ -19,16 +21,21 @@ const Formulario = () => {
 
     dispatch(
       cadastrar({
-        titulo,
+        nome,
+        sobrenome,
+        email,
         prioridade,
-        descricao,
+        telefone,
         status: enums.Status.COMUNS
       })
     )
 
-    setTitulo('')
-    setDescricao('')
+    setNome('')
+    setSobrenome('')
+    setEmail('')
+    setTelefone(0)
     setPrioridade(enums.Prioridade.TRABALHO)
+
     navigate('/')
   }
 
@@ -37,16 +44,31 @@ const Formulario = () => {
       <Form onSubmit={CadastraContato()}>
         <Titulo as="h2">Cadastro de Contato</Titulo>
         <Input
-          value={titulo}
-          onChange={(evento) => setTitulo(evento.target.value)}
+          value={nome}
+          onChange={(evento) => setNome(evento.target.value)}
           type="text"
-          placeholder="Título"
+          placeholder="Nome"
+          required
         />
         <Input
-          value={descricao}
-          onChange={(evento) => setDescricao(evento.target.value)}
-          as="textarea"
-          placeholder="email"
+          value={sobrenome}
+          onChange={(evento) => setSobrenome(evento.target.value)}
+          type="text"
+          placeholder="Sobrenome"
+        />
+
+        <Input
+          id="telefone"
+          value={telefone}
+          placeholder="Telefone"
+          onChange={(evento) => setTelefone(parseInt(evento.target.value) || 0)}
+          type="number"
+        />
+        <Input
+          value={email}
+          onChange={(evento) => setEmail(evento.target.value)}
+          type="email"
+          placeholder="E-mail"
         />
         <Opcoes>
           <p>Prioridade:</p>

@@ -9,26 +9,31 @@ const initialState: ContatosState = {
   itens: [
     {
       id: 1,
-      descricao: 'Estudar Redux para entender o gerenciamento de estado',
+      telefone: 11987654321,
       prioridade: enums.Prioridade.TRABALHO,
       status: enums.Status.COMUNS,
-      titulo: 'Ana'
+      email: 'ana@gmail.com',
+      nome: 'Ana'
     },
 
     {
       id: 2,
-      descricao: 'Estudar TypeScript para melhorar a tipagem do código',
-      prioridade: enums.Prioridade.AMIGOS,
+      telefone: 31998765432,
+      prioridade: enums.Prioridade.FAMILIA,
       status: enums.Status.FAVORITOS,
-      titulo: 'Paula'
+      email: 'paula@gmail.com',
+      sobrenome: 'Pimenta',
+      nome: 'Paula'
     },
 
     {
       id: 3,
-      descricao: 'Estudar React para entender a biblioteca de UI ',
+      telefone: 21912345678,
       prioridade: enums.Prioridade.AMIGOS,
-      status: enums.Status.COMUNS,
-      titulo: 'Julia'
+      status: enums.Status.FAVORITOS,
+      email: 'julia@gmail.com',
+      sobrenome: 'Brandao',
+      nome: 'Julia'
     }
   ]
 }
@@ -51,15 +56,21 @@ const contatosSlice = createSlice({
       }
     },
     cadastrar: (state, action: PayloadAction<Omit<Contato, 'id'>>) => {
-      const contatoJaExiste = state.itens.find(
-        (contato) =>
-          contato.titulo.toLowerCase() === action.payload.titulo.toLowerCase()
-      )
+      const nomeCompletoNovo = `${action.payload.nome.toLowerCase()} ${
+        action.payload.sobrenome?.toLowerCase() || ''
+      }`.trim()
+      const contatoJaExiste = state.itens.find((contato) => {
+        const nomeCompletoExistente = `${contato.nome.toLowerCase()} ${
+          contato.sobrenome?.toLowerCase() || ''
+        }`.trim()
+        return nomeCompletoExistente === nomeCompletoNovo
+      })
 
       if (contatoJaExiste) {
         alert('Já existe um contato com esse nome')
       } else {
-        const ultimoContato = state.itens[state.itens.length - 1]
+        const ultimoContato =
+          state.itens.length > 0 ? state.itens[state.itens.length - 1] : null
 
         const contatoNovo = {
           ...action.payload,

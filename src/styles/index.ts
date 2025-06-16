@@ -39,6 +39,11 @@ export const Input = styled.input`
     outline: 2px solid #e90179;
     color: #2c2c2c;
   }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
 `
 
 export const Botao = styled.button`
