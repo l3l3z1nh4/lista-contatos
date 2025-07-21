@@ -1,46 +1,65 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Lista de Contatos 
 
-## Available Scripts
+Este projeto é uma aplicação desenvolvida com ReactJS que permite aos usuários gerenciar uma lista de contatos. O objetivo principal é fornecer uma interface simples e eficiente para adicionar, visualizar e remover contatos.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🔍 Visão Geral
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Status**: Concluído
+- **Tecnologias**: ReactJS, Vite, CSS
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## ⚙️ Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Adicionar Contatos**: Permite que os usuários insiram novos contatos com nome e informações de contato.
 
-### `npm run build`
+- **Listagem de Contatos**: Exibe uma lista de contatos adicionados, permitindo que os usuários visualizem suas informações.
+  
+-  **Favoritar Contatos**: Possibilidade de marcar contatos como favoritos, facilitando o acesso rápido aos mais importantes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Remover Contatos**: Funcionalidade para remover contatos da lista, ajudando a manter a organização.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🌐 Demonstração - [Link para o Projeto Online](https://lista-contatos-peach.vercel.app/)
 
-### `npm run eject`
+![Preview da Lista de Contatos](/assets/contatos_print.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+*A imagem acima mostra a interface da aplicação de gerenciamento de contatos.*
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 💡 Aprendizados
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Neste projeto, aprofundei meus conhecimentos em:
 
-## Learn More
+- **Desenvolvimento com ReactJS**: Aprendizado sobre a criação de componentes e gerenciamento de estado com React.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Manipulação de Eventos**: Implementação de funcionalidades dinâmicas que melhoram a experiência do usuário.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Gerenciamento de Estado**: Uso de hooks do React para gerenciar o estado da aplicação de forma eficiente.
+
+---
+
+## 📦 Instalação e Uso
+
+Para rodar a aplicação "Lista de Contatos" em seu ambiente local, siga estes passos:
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/l3l3z1nh4/lista-contatos.git
+
+# 2. Acesse a pasta do projeto
+cd lista-contatos
+
+# 3. Instale as dependências
+npm install
+
+# 4. Compile e inicie o servidor de desenvolvimento
+npm run dev
+
+# 5. Abra o navegador e acesse a aplicação
+# A aplicação estará disponível em http://localhost:3000 (ou outra porta especificada).
